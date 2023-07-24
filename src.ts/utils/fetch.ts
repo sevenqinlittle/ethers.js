@@ -188,6 +188,7 @@ export class FetchRequest implements Iterable<[ key: string, value: string ]> {
     #timeout: number;
     #url: string;
 
+    #agent: any;
     #body?: Uint8Array;
     #bodyType?: string;
     #creds?: string;
@@ -200,6 +201,11 @@ export class FetchRequest implements Iterable<[ key: string, value: string ]> {
     #signal?: FetchCancelSignal;
 
     #throttle: Required<FetchThrottleParams>;
+
+    get agent(): string { return this.#agent; }
+    set agent(agent: any) {
+        this.#url = agent;
+    }
 
     /**
      *  The fetch URI to requrest.
@@ -618,6 +624,8 @@ export class FetchRequest implements Iterable<[ key: string, value: string ]> {
      */
     clone(): FetchRequest {
         const clone = new FetchRequest(this.url);
+
+        clone.#agent = this.#agent;
 
         // Preserve "default method" (i.e. null)
         clone.#method = this.#method;
