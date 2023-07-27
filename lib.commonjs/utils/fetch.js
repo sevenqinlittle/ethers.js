@@ -134,6 +134,7 @@ class FetchRequest {
     #method;
     #timeout;
     #url;
+    #agent;
     #body;
     #bodyType;
     #creds;
@@ -143,6 +144,10 @@ class FetchRequest {
     #retry;
     #signal;
     #throttle;
+    get agent() { return this.#agent; }
+    set agent(agent) {
+        this.#agent = agent;
+    }
     /**
      *  The fetch URI to requrest.
      */
@@ -536,6 +541,7 @@ class FetchRequest {
      */
     clone() {
         const clone = new FetchRequest(this.url);
+        clone.#agent = this.#agent;
         // Preserve "default method" (i.e. null)
         clone.#method = this.#method;
         // Preserve "default body" with type, copying the Uint8Array is present

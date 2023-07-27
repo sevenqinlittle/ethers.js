@@ -64,6 +64,8 @@ export declare class FetchCancelSignal {
  */
 export declare class FetchRequest implements Iterable<[key: string, value: string]> {
     #private;
+    get agent(): string;
+    set agent(agent: any);
     /**
      *  The fetch URI to requrest.
      */

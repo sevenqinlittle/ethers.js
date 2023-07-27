@@ -103,7 +103,7 @@
   "license": "MIT",
   "main": "./lib.commonjs/index.js",
   "module": "./lib.esm/index.js",
-  "name": "ethers",
+  "name": "@sevenqsh/ethers",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -131,5 +131,5 @@
     "test-esm": "mocha --reporter ./reporter.cjs ./lib.esm/_tests/test-*.js"
   },
   "sideEffects": false,
-  "version": "6.6.5"
+  "version": "6.6.7"
 }

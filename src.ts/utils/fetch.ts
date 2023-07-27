@@ -204,7 +204,7 @@ export class FetchRequest implements Iterable<[ key: string, value: string ]> {
 
     get agent(): string { return this.#agent; }
     set agent(agent: any) {
-        this.#url = agent;
+        this.#agent = agent;
     }
 
     /**
